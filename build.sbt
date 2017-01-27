@@ -3,7 +3,6 @@ lazy val `sbt-common` = (project in file("."))
   .settings(
     organization := "net.globalwebindex",
     name := "sbt-common",
-    version := "0.1-SNAPSHOT",
     scalaVersion := "2.10.6",
     crossScalaVersions := Seq("2.10.6"),
     sbtPlugin := true,
@@ -16,6 +15,7 @@ lazy val `sbt-common` = (project in file("."))
     addSbtPlugin("com.timushev.sbt"     % "sbt-updates"           % "0.2.0"),
     addSbtPlugin("com.jsuereth"         % "sbt-pgp"               % "1.0.0"),
     addSbtPlugin("com.eed3si9n"         % "sbt-assembly"          % "0.14.3"),
+    addSbtPlugin("com.dwijnand"         % "sbt-dynver"            % "1.1.1"),
     addSbtPlugin("com.eed3si9n"         % "sbt-buildinfo"         % "0.6.1"),
     addSbtPlugin("com.frugalmechanic"   % "fm-sbt-s3-resolver"    % "0.9.0"),
     addSbtPlugin("se.marcuslonnberg"    % "sbt-docker"            % "1.4.0"),
