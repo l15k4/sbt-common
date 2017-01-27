@@ -29,7 +29,8 @@ object CommonPlugin extends AutoPlugin {
       Resolver.sonatypeRepo("snapshots"),
       Resolver.typesafeRepo("releases"),
       Resolver.jcenterRepo,
-      Resolver.mavenLocal
+      Resolver.mavenLocal,
+      Resolver.bintrayRepo("tanukkii007", "maven")
     ),
     /* sensible default test settings */
     testOptions in Test ++= Seq(Tests.Argument("-oDFI"), Tests.Setup(() => TimeZone.setDefault(TimeZone.getTimeZone("UTC")))),
