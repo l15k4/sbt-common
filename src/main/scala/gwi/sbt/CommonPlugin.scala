@@ -30,6 +30,7 @@ object CommonPlugin extends AutoPlugin {
       Resolver.typesafeRepo("releases"),
       Resolver.jcenterRepo,
       Resolver.mavenLocal,
+      "S3 Snapshots" at "s3://public.maven.globalwebindex.net.s3-website-eu-west-1.amazonaws.com/snapshots",
       Resolver.bintrayRepo("tanukkii007", "maven")
     ),
     /* sensible default test settings */
