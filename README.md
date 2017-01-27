@@ -19,6 +19,7 @@ addSbtPlugin("com.frugalmechanic" % "fm-sbt-s3-resolver" % "0.9.0")
 You can use plugin directly in which case you need just either of these in **project/plugins.sbt** :
 ```
 dependsOn(ProjectRef(uri("file://home/ubuntu/src/sbt-common"), "sbt-common"))
-dependsOn(ProjectRef(uri("ssh://git@github.com/l15k4/sbt-common"), "sbt-common"))
-dependsOn(ProjectRef(uri("https://github.com/l15k4/sbt-common"), "sbt-common"))
+dependsOn(ProjectRef(uri("ssh://git@github.com/l15k4/sbt-common.git"), "sbt-common"))
+dependsOn(ProjectRef(uri("https://github.com/l15k4/sbt-common.git"), "sbt-common"))
 ```
+To get a specific version, do : `../sbt-common.git#vx.y.z`
