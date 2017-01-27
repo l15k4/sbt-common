@@ -7,7 +7,9 @@ lazy val `sbt-common` = (project in file("."))
     scalaVersion := "2.10.6",
     crossScalaVersions := Seq("2.10.6"),
     sbtPlugin := true,
-    publishTo := Some("S3 Snapshots" at "s3://public.maven.globalwebindex.net.s3-website-eu-west-1.amazonaws.com/snapshots")
+    publishTo := Some("S3 Snapshots" at "s3://public.maven.globalwebindex.net.s3-website-eu-west-1.amazonaws.com/snapshots"),
+    publishMavenStyle := true,
+    pomIncludeRepository := { _ => false}
   )
   .settings(
     addSbtPlugin("com.eed3si9n"         % "sbt-buildinfo"         % "0.6.1"),
