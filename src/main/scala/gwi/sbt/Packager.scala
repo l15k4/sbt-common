@@ -8,6 +8,8 @@ import sbtdocker.mutable.Dockerfile
 
 trait Packager extends Dependencies {
 
+  lazy val s3Resolver = "S3 Snapshots" at "s3://public.maven.globalwebindex.net.s3-website-eu-west-1.amazonaws.com/snapshots"
+
   def publishSettings(organization: String, projectName: String, resolverOpt: sbt.Resolver) = Seq(
     publishTo := Some(resolverOpt),
     publishMavenStyle := true,

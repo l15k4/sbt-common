@@ -9,6 +9,8 @@ import sbtassembly.AssemblyPlugin.autoImport._
 
 object CommonPlugin extends AutoPlugin {
 
+  object autoImport extends Packager
+
   override def trigger: PluginTrigger = allRequirements
 
   override def requires: Plugins = JvmPlugin
@@ -26,11 +28,11 @@ object CommonPlugin extends AutoPlugin {
     publishArtifact := false, // if project wants to publish, it should override it with Packager.publishSettings
     assembleArtifact := false, // if project wants to publish, it should override it with Packager.assemblySettings
     resolvers ++= Seq(
+      autoImport.s3Resolver,
       Resolver.sonatypeRepo("snapshots"),
       Resolver.typesafeRepo("releases"),
-      Resolver.jcenterRepo,
       Resolver.mavenLocal,
-      "S3 Snapshots" at "s3://public.maven.globalwebindex.net.s3-website-eu-west-1.amazonaws.com/snapshots",
+      Resolver.jcenterRepo,
       Resolver.bintrayRepo("tanukkii007", "maven")
     ),
     /* sensible default test settings */
@@ -43,8 +45,6 @@ object CommonPlugin extends AutoPlugin {
     concurrentRestrictions in Test += Tags.limit(Tags.Test, 1),
     initialCommands in(Test, console) := """ammonite.repl.Main().run()"""
   )
-
-  object autoImport extends Packager
 
   override def globalSettings: Seq[_root_.sbt.Def.Setting[_]] = Seq(
     cancelable := true
