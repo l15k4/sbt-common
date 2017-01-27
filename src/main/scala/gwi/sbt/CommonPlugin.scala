@@ -9,7 +9,9 @@ import sbtassembly.AssemblyPlugin.autoImport._
 
 object CommonPlugin extends AutoPlugin {
 
-  object autoImport extends Packager
+  object autoImport extends Packager {
+    lazy val s3Resolver = "S3 Snapshots" at "s3://public.maven.globalwebindex.net.s3-website-eu-west-1.amazonaws.com/snapshots"
+  }
 
   override def trigger: PluginTrigger = allRequirements
 
@@ -21,7 +23,7 @@ object CommonPlugin extends AutoPlugin {
     scalacOptions ++= Seq(
       "-unchecked", "-feature",
       "-Xlint", "-Xfuture",
-      "-Yinline-warnings", "-Ywarn-adapted-args", "-Ywarn-inaccessible",
+      "-Ywarn-adapted-args", "-Ywarn-inaccessible",
       "-Ywarn-nullary-override", "-Ywarn-nullary-unit", "-Yno-adapted-args"
     ),
     autoCompilerPlugins := true,

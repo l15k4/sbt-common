@@ -4,20 +4,10 @@ import sbt._
 
 trait Dependencies {
 
-  lazy val mawexVersion               = "0.13-SNAPSHOT"
-  lazy val storagePartitionerVersion  = "0.09-SNAPSHOT"
-  lazy val saturatorVersion           = "0.06-SNAPSHOT"
-  lazy val druid4sVersion             = "0.1.2-SNAPSHOT"
-  lazy val randagenVersion            = "0.10-SNAPSHOT"
   lazy val akkaVersion                = "2.4.16"
   lazy val akkaHttpVersion            = "10.0.1"
   lazy val jacksonVersion             = "2.8.6"
 
-  lazy val mawexApi               = "net.globalwebindex"            %% "mawex-api"                    % mawexVersion
-  lazy val mawex                  = "net.globalwebindex"            %% "mawex"                        % mawexVersion
-  lazy val storagePartitioner     = "net.globalwebindex"            %% "storage-partitioner"          % storagePartitionerVersion
-  lazy val saturator              = "net.globalwebindex"            %% "saturator"                    % saturatorVersion
-  lazy val druid4s                = "net.globalwebindex"            %% "druid4s"                      % druid4sVersion
   lazy val awsS3                  = "com.amazonaws"                 %  "aws-java-sdk-s3"              % "1.11.68"
   lazy val loggingImplLog4j       = "org.slf4j"                     %  "slf4j-log4j12"                % "1.7.22"
   lazy val loggingImplLogback     = "ch.qos.logback"                %  "logback-classic"              % "1.1.9"
