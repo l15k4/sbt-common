@@ -1,4 +1,3 @@
-
 lazy val `sbt-common` = (project in file("."))
   .settings(
     organization := "net.globalwebindex",
@@ -9,8 +8,7 @@ lazy val `sbt-common` = (project in file("."))
     publishTo := Some("S3 Snapshots" at "s3://public.maven.globalwebindex.net.s3-website-eu-west-1.amazonaws.com/snapshots"),
     publishMavenStyle := true,
     pomIncludeRepository := { _ => false}
-  )
-  .settings(
+  ).settings(
     addSbtPlugin("com.eed3si9n"         % "sbt-buildinfo"         % "0.6.1"),
     addSbtPlugin("com.timushev.sbt"     % "sbt-updates"           % "0.2.0"),
     addSbtPlugin("com.jsuereth"         % "sbt-pgp"               % "1.0.0"),
