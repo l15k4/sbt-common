@@ -16,10 +16,11 @@ trait Dependencies {
   lazy val sparkSketch            = "org.apache.spark"              %% "spark-sketch"                 % "2.1.0"
   lazy val scalaHttp              = "org.scalaj"                    %% "scalaj-http"                  % "2.3.0"
   lazy val commonsNet             = "commons-net"                   %  "commons-net"                  % "3.5"
-  lazy val commonsMath            = "org.apache.commons"            % "commons-math3"                 % "3.6"
+  lazy val commonsMath            = "org.apache.commons"            %  "commons-math3"                % "3.6"
   lazy val sprayJson              = "io.spray"                      %% "spray-json"                   % "1.3.3"
   lazy val redis                  = "com.github.etaty"              %% "rediscala"                    % "1.8.0"
   lazy val algebird               = "com.twitter"                   %% "algebird-core"                % "0.12.4"
+  lazy val monix                  = "io.monix"                      %% "monix"                        % "2.2.1"
   lazy val jodaTime               = Seq(
                                     "joda-time"                     %  "joda-time"                    % "2.9.7",
                                     "org.joda"                      %  "joda-convert"                 % "1.8"
