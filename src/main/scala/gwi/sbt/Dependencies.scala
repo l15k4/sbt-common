@@ -4,7 +4,8 @@ import sbt._
 
 trait Dependencies {
 
-  lazy val akkaVersion                = "2.4.16"
+  lazy val akkaVersion                = "2.4.17"
+  lazy val alpakkaVersion             = "0.5"
   lazy val akkaHttpVersion            = "10.0.3"
   lazy val jacksonVersion             = "2.8.6"
 
@@ -54,6 +55,9 @@ trait Dependencies {
                                     "ch.megard"                     %% "akka-http-cors"               % "0.1.11",
                                     "com.github.TanUkkii007"        %% "akka-cluster-custom-downing"  % "0.0.7",
                                     "com.github.romix.akka"         %% "akka-kryo-serialization"      % "0.5.0",
+                                    "com.lightbend.akka"            %% "akka-stream-alpakka-file"     % alpakkaVersion,
+                                    "com.lightbend.akka"            %% "akka-stream-alpakka-s3"       % alpakkaVersion,
+                                    "com.lightbend.akka"            %% "akka-stream-alpakka-dynamodb" % alpakkaVersion,
                                     "com.typesafe.akka"             %% "akka-http-testkit"            % akkaHttpVersion             % "test",
                                     "com.typesafe.akka"             %% "akka-testkit"                 % akkaVersion                 % "test"
                                   )
