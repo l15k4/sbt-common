@@ -16,7 +16,7 @@ lazy val `sbt-common` = (project in file("."))
     addSbtPlugin("com.dwijnand"                   % "sbt-dynver"            % "1.1.1"),
     addSbtPlugin("com.eed3si9n"                   % "sbt-buildinfo"         % "0.6.1"),
     addSbtPlugin("com.frugalmechanic"             % "fm-sbt-s3-resolver"    % "0.9.0"),
-    addSbtPlugin("se.marcuslonnberg"              % "sbt-docker"            % "1.4.0"),
+    addSbtPlugin("se.marcuslonnberg"              % "sbt-docker"            % "1.4.1"),
     addSbtPlugin("net.virtual-void"               % "sbt-dependency-graph"  % "0.8.2"),
     addSbtPlugin("pl.project13.scala"             % "sbt-jmh"               % "0.2.18"),
     addCompilerPlugin("com.softwaremill.clippy"   %% "plugin"               % "0.5.0" classifier "bundle"),
