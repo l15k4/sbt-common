@@ -65,6 +65,7 @@ trait Dependencies {
   lazy val testingDeps            = Seq(
                                     "com.lihaoyi"                   %  "ammonite"                     % "0.8.2"                     % "test" cross CrossVersion.full,
                                     "org.scalatest"                 %% "scalatest"                    % "3.0.1"                     % "test",
-                                    "com.storm-enroute"             %% "scalameter"                   % "0.8.2"                     % "test"
+                                    "com.storm-enroute"             %% "scalameter"                   % "0.8.2"                     % "test",
+                                    "io.findify"                    %% "s3mock"                       % "0.1.10"                    % "test"
                                   )
 }
