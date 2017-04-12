@@ -18,7 +18,7 @@ object CommonPlugin extends AutoPlugin {
   override def requires: Plugins = JvmPlugin
 
   override lazy val projectSettings = Seq(
-    scalaVersion := "2.11.8",
+    scalaVersion := "2.12.1",
     offline := true,
     scalacOptions ++= Seq(
       "-unchecked", "-feature",

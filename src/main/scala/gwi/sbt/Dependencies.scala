@@ -5,27 +5,25 @@ import sbt._
 trait Dependencies {
 
   lazy val akkaVersion                = "2.4.17"
-  lazy val alpakkaVersion             = "0.5"
-  lazy val akkaHttpVersion            = "10.0.3"
-  lazy val jacksonVersion             = "2.8.6"
+  lazy val alpakkaVersion             = "0.7"
+  lazy val akkaHttpVersion            = "10.0.5"
+  lazy val jacksonVersion             = "2.8.8"
 
-  lazy val awsS3                  = "com.amazonaws"                 %  "aws-java-sdk-s3"              % "1.11.68"
-  lazy val loggingImplLog4j       = "org.slf4j"                     %  "slf4j-log4j12"                % "1.7.22"
-  lazy val loggingImplLogback     = "ch.qos.logback"                %  "logback-classic"              % "1.1.9"
+  lazy val awsS3                  = "com.amazonaws"                 %  "aws-java-sdk-s3"              % "1.11.119"
+  lazy val loggingImplLog4j       = "org.slf4j"                     %  "slf4j-log4j12"                % "1.7.25"
+  lazy val loggingImplLogback     = "ch.qos.logback"                %  "logback-classic"              % "1.2.3"
   lazy val pprint                 = "com.lihaoyi"                   %% "pprint"                       % "0.4.4"
   lazy val guava                  = "com.google.guava"              %  "guava"                        % "21.0"
-  lazy val sparkSketch            = "org.apache.spark"              %% "spark-sketch"                 % "2.1.0"
   lazy val scalaHttp              = "org.scalaj"                    %% "scalaj-http"                  % "2.3.0"
-  lazy val commonsNet             = "commons-net"                   %  "commons-net"                  % "3.5"
-  lazy val commonsMath            = "org.apache.commons"            %  "commons-math3"                % "3.6"
+  lazy val commonsNet             = "commons-net"                   %  "commons-net"                  % "3.6"
+  lazy val commonsMath            = "org.apache.commons"            %  "commons-math3"                % "3.6.1"
   lazy val sprayJson              = "io.spray"                      %% "spray-json"                   % "1.3.3"
-  lazy val redisScala             = "com.github.etaty"              %% "rediscala"                    % "1.8.0"
-  lazy val scalaRedis             = "net.debasishg"                 %% "redisclient"                  % "3.3"
-  lazy val algebird               = "com.twitter"                   %% "algebird-core"                % "0.12.4"
-  lazy val monix                  = "io.monix"                      %% "monix"                        % "2.2.1"
+  lazy val scalaRedis             = "net.debasishg"                 %% "redisclient"                  % "3.4"
+  lazy val algebird               = "com.twitter"                   %% "algebird-core"                % "0.13.0"
+  lazy val monix                  = "io.monix"                      %% "monix"                        % "2.2.4"
   lazy val jodaTime               = Seq(
-                                    "joda-time"                     %  "joda-time"                    % "2.9.7",
-                                    "org.joda"                      %  "joda-convert"                 % "1.8"
+                                    "joda-time"                     %  "joda-time"                    % "2.9.9",
+                                    "org.joda"                      %  "joda-convert"                 % "1.8.1"
                                   )
   lazy val jackson                = Seq(
                                     "com.fasterxml.jackson.module"  %% "jackson-module-scala"         % jacksonVersion,
@@ -37,7 +35,7 @@ trait Dependencies {
                                     "org.backuity.clist"            %% "clist-macros"                 % "3.2.2"                     % "provided"
                                   )
   lazy val loggingApi             = Seq(
-                                    "org.slf4j"                     %  "slf4j-api"                    % "1.7.22",
+                                    "org.slf4j"                     %  "slf4j-api"                    % "1.7.25",
                                     "com.typesafe.scala-logging"    %% "scala-logging"                % "3.5.0"
                                   )
   lazy val uaDetector             = Seq(
@@ -52,10 +50,11 @@ trait Dependencies {
                                     "com.typesafe.akka"             %% "akka-cluster"                 % akkaVersion,
                                     "com.typesafe.akka"             %% "akka-cluster-tools"           % akkaVersion,
                                     "com.typesafe.akka"             %% "akka-persistence"             % akkaVersion,
-                                    "com.hootsuite"                 %% "akka-persistence-redis"       % "0.6.0",
-                                    "ch.megard"                     %% "akka-http-cors"               % "0.1.11",
+                                    "com.hootsuite"                 %% "akka-persistence-redis"       % "0.7.1",
+                                    "ch.megard"                     %% "akka-http-cors"               % "0.2.1",
                                     "com.github.TanUkkii007"        %% "akka-cluster-custom-downing"  % "0.0.7",
-                                    "com.github.romix.akka"         %% "akka-kryo-serialization"      % "0.5.0",
+                                    "com.github.romix.akka"         %% "akka-kryo-serialization"      % "0.5.2",
+                                    "com.lightbend.akka"            %% "akka-stream-alpakka-ftp"      % alpakkaVersion,
                                     "com.lightbend.akka"            %% "akka-stream-alpakka-file"     % alpakkaVersion,
                                     "com.lightbend.akka"            %% "akka-stream-alpakka-s3"       % alpakkaVersion,
                                     "com.lightbend.akka"            %% "akka-stream-alpakka-dynamodb" % alpakkaVersion,
