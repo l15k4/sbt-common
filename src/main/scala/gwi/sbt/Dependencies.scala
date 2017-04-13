@@ -59,7 +59,8 @@ trait Dependencies {
                                     "com.lightbend.akka"            %% "akka-stream-alpakka-s3"       % alpakkaVersion,
                                     "com.lightbend.akka"            %% "akka-stream-alpakka-dynamodb" % alpakkaVersion,
                                     "com.typesafe.akka"             %% "akka-http-testkit"            % akkaHttpVersion             % "test",
-                                    "com.typesafe.akka"             %% "akka-testkit"                 % akkaVersion                 % "test"
+                                    "com.typesafe.akka"             %% "akka-testkit"                 % akkaVersion                 % "test",
+                                    "com.miguno.akka"               %% "akka-mock-scheduler"          % "0.5.1"                     % "test"
                                   )
   lazy val testingDeps            = Seq(
                                     "com.lihaoyi"                   %  "ammonite"                     % "0.8.2"                     % "test" cross CrossVersion.full,
