@@ -29,6 +29,7 @@ trait Dependencies {
   lazy val akkaActor                  = "com.typesafe.akka"             %% "akka-actor"                           % akkaVersion
   lazy val akkaSlf4j                  = "com.typesafe.akka"             %% "akka-slf4j"                           % akkaVersion
   lazy val akkaStream                 = "com.typesafe.akka"             %% "akka-stream"                          % akkaVersion
+  lazy val akkaStreamTestkit          = "com.typesafe.akka"             %% "akka-stream-testkit"                  % akkaVersion
   lazy val akkaStreamKafka            = "com.typesafe.akka"             %% "akka-stream-kafka"                    % "0.14"
   lazy val akkaHttp                   = "com.typesafe.akka"             %% "akka-http"                            % akkaHttpVersion
   lazy val akkaHttpCors               = "ch.megard"                     %% "akka-http-cors"                       % "0.2.1"
