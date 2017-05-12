@@ -25,6 +25,7 @@ trait Dependencies {
   lazy val configAnnotation           = "com.wacai"                     %% "config-annotation"                    % "0.3.6"
   lazy val kafkaClients               = "org.apache.kafka"              % "kafka-clients"                         % "0.10.1.1"
   lazy val scalaMeta                  = "org.scalameta"                 %% "scalameta"                            % "1.7.0"
+  lazy val cassandraDriver            = "com.datastax.cassandra"        %  "cassandra-driver-core"                % "3.2.0"
 
   lazy val akkaActor                  = "com.typesafe.akka"             %% "akka-actor"                           % akkaVersion
   lazy val akkaSlf4j                  = "com.typesafe.akka"             %% "akka-slf4j"                           % akkaVersion
