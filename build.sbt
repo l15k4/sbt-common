@@ -10,6 +10,7 @@ lazy val `sbt-common` = (project in file("."))
     pomIncludeRepository := { _ => false}
   ).settings(
     addSbtPlugin("com.eed3si9n"                   % "sbt-buildinfo"         % "0.6.1"),
+    addSbtPlugin("org.clapper"                    % "sbt-editsource"        % "0.7.0"),
     addSbtPlugin("com.timushev.sbt"               % "sbt-updates"           % "0.2.0"),
     addSbtPlugin("com.jsuereth"                   % "sbt-pgp"               % "1.0.0"),
     addSbtPlugin("com.eed3si9n"                   % "sbt-assembly"          % "0.14.3"),
