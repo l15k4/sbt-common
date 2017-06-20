@@ -7,7 +7,7 @@ import sbt._
 import sbt.plugins.JvmPlugin
 import sbtassembly.AssemblyPlugin.autoImport._
 
-object CommonPlugin extends AutoPlugin {
+object CommonPlugin extends AutoPlugin with Dependencies {
 
   object autoImport extends Packager {
     lazy val s3Resolver = "S3 Snapshots" at "s3://public.maven.globalwebindex.net.s3-website-eu-west-1.amazonaws.com/snapshots"
@@ -49,7 +49,8 @@ object CommonPlugin extends AutoPlugin {
       val file = (sourceManaged in Test).value / "amm.scala"
       IO.write(file, """object amm extends App { ammonite.Main().run() }""")
       Seq(file)
-    }.taskValue
+    }.taskValue,
+    libraryDependencies += ammonite
   )
 
   override def globalSettings: Seq[_root_.sbt.Def.Setting[_]] = Seq(
