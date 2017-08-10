@@ -45,7 +45,7 @@ trait Dependencies {
   lazy val akkaClusterCustomDowning   = "com.github.TanUkkii007"        %% "akka-cluster-custom-downing"          % "0.0.7"
   lazy val akkaDistributedData        = "com.typesafe.akka"             %% "akka-distributed-data-experimental"   % akkaVersion
   lazy val akkaPersistence            = "com.typesafe.akka"             %% "akka-persistence"                     % akkaVersion
-  lazy val akkaPersistenceRedis       = "com.hootsuite"                 %% "akka-persistence-redis"               % "0.7.1"
+  lazy val akkaPersistenceRedis       = "com.hootsuite"                 %% "akka-persistence-redis"               % "0.8.0"
   lazy val akkaKryoSerialization      = "com.github.romix.akka"         %% "akka-kryo-serialization"              % "0.5.2"
   lazy val akkaTestkit                = "com.typesafe.akka"             %% "akka-testkit"                         % akkaVersion                 % "test"
   lazy val akkaMockScheduler          = "com.miguno.akka"               %% "akka-mock-scheduler"                  % "0.5.1"                     % "test"
