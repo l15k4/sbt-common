@@ -39,7 +39,6 @@ object CommonPlugin extends AutoPlugin with Dependencies {
     ),
     /* sensible default test settings */
     testOptions in Test ++= Seq(Tests.Argument("-oDFI"), Tests.Setup(() => TimeZone.setDefault(TimeZone.getTimeZone("UTC")))),
-    fork in Test := false,
     parallelExecution in Test := false,
     parallelExecution in IntegrationTest := false,
     testForkedParallel in IntegrationTest := false,
