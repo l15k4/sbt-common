@@ -13,12 +13,18 @@ object CommonPlugin extends AutoPlugin with Dependencies {
     lazy val s3Resolver = "S3 Snapshots" at "s3://public.maven.globalwebindex.net.s3-website-eu-west-1.amazonaws.com/snapshots"
   }
 
+  def cleanStaging = Command.command("clean-staging") { currentState =>
+    s"rm -rf ${sys.env("HOME")}/.sbt/0.13/staging/".!
+    currentState
+  }
+
   override def trigger: PluginTrigger = allRequirements
 
   override def requires: Plugins = JvmPlugin
 
   override lazy val projectSettings = Seq(
     scalaVersion := "2.12.3",
+    commands += cleanStaging,
     offline := true,
     scalacOptions ++= Seq(
       "-unchecked", "-feature",
