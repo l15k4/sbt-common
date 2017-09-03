@@ -57,11 +57,6 @@ trait Packager extends Dependencies {
       aggregate in assemblyPackageDependency := false,
       assemblyOutputPath in assembly := workingDir.value / "bin" / (assemblyJarName in assembly).value,
       assemblyOutputPath in assemblyPackageDependency := workingDir.value / "bin" / (assemblyJarName in assemblyPackageDependency).value
-    ) ++ Seq(
-      assemblyMergeStrategy in assembly := {
-        case PathList("org", "apache", "spark", "unused", xs @ _*) => MergeStrategy.first
-        case x => (assemblyMergeStrategy in assembly).value(x)
-      }
     )
   }
 
