@@ -36,12 +36,12 @@ object CommonPlugin extends AutoPlugin with Dependencies {
     publishArtifact := false, // if project wants to publish, it should override it with Packager.publishSettings
     assembleArtifact := false, // if project wants to publish, it should override it with Packager.assemblySettings
     resolvers ++= Seq(
-      autoImport.s3Resolver,
+      Resolver.mavenLocal,
       Resolver.sonatypeRepo("snapshots"),
       Resolver.typesafeRepo("releases"),
-      Resolver.mavenLocal,
       Resolver.jcenterRepo,
-      Resolver.bintrayRepo("tanukkii007", "maven")
+      Resolver.bintrayRepo("tanukkii007", "maven"),
+      autoImport.s3Resolver
     ),
     /* sensible default test settings */
     testOptions in Test ++= Seq(Tests.Argument("-oDFI"), Tests.Setup(() => TimeZone.setDefault(TimeZone.getTimeZone("UTC")))),
