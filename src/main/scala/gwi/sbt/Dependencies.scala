@@ -28,6 +28,7 @@ trait Dependencies {
   lazy val cassandraDriver            = "com.datastax.cassandra"        %  "cassandra-driver-core"                % "3.2.0"
   lazy val cassandraDriverNettyEpoll  = "io.netty"                      %  "netty-transport-native-epoll"         % "4.0.44.Final" classifier "linux-x86_64"
   lazy val snappy                     = "org.xerial.snappy"             %  "snappy-java"                          % "1.1.2.6"
+  lazy val asciiGraph                 = "com.github.mdr"                %% "ascii-graphs"                         % "0.0.7"
 
   lazy val akkaActor                  = "com.typesafe.akka"             %% "akka-actor"                           % akkaVersion
   lazy val akkaSlf4j                  = "com.typesafe.akka"             %% "akka-slf4j"                           % akkaVersion
