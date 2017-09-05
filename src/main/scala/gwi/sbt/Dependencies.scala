@@ -15,6 +15,7 @@ trait Dependencies {
   lazy val pprint                     = "com.lihaoyi"                   %% "pprint"                               % "0.5.2"
   lazy val guava                      = "com.google.guava"              %  "guava"                                % "23.0"
   lazy val scalaHttp                  = "org.scalaj"                    %% "scalaj-http"                          % "2.3.0"
+  lazy val sttp                       = "com.softwaremill.sttp"         %% "core"                                 % "0.0.6"
   lazy val commonsNet                 = "commons-net"                   %  "commons-net"                          % "3.6"
   lazy val commonsMath                = "org.apache.commons"            %  "commons-math3"                        % "3.6.1"
   lazy val sprayJson                  = "io.spray"                      %% "spray-json"                           % "1.3.3"
