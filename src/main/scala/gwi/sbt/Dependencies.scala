@@ -12,7 +12,6 @@ trait Dependencies {
   lazy val awsS3                      = "com.amazonaws"                 %  "aws-java-sdk-s3"                      % "1.11.119"
   lazy val loggingImplLog4j           = "org.slf4j"                     %  "slf4j-log4j12"                        % "1.7.25"
   lazy val loggingImplLogback         = "ch.qos.logback"                %  "logback-classic"                      % "1.2.3"
-  lazy val pprint                     = "com.lihaoyi"                   %% "pprint"                               % "0.5.2"
   lazy val guava                      = "com.google.guava"              %  "guava"                                % "23.0"
   lazy val scalaHttp                  = "org.scalaj"                    %% "scalaj-http"                          % "2.3.0"
   lazy val sttp                       = "com.softwaremill.sttp"         %% "core"                                 % "0.0.6"
@@ -30,7 +29,9 @@ trait Dependencies {
   lazy val cassandraDriverNettyEpoll  = "io.netty"                      %  "netty-transport-native-epoll"         % "4.0.44.Final" classifier "linux-x86_64"
   lazy val snappy                     = "org.xerial.snappy"             %  "snappy-java"                          % "1.1.2.6"
   lazy val asciiGraphs                = "com.github.mdr"                %% "ascii-graphs"                         % "0.0.7"
+  lazy val pprint                     = "com.lihaoyi"                   %% "pprint"                               % "0.5.2"
   lazy val scalaTags                  = "com.lihaoyi"                   %% "scalatags"                            % "0.6.5"
+  lazy val upickle                    = "com.lihaoyi"                   %% "upickle"                              % "0.4.3"
 
   lazy val akkaActor                  = "com.typesafe.akka"             %% "akka-actor"                           % akkaVersion
   lazy val akkaSlf4j                  = "com.typesafe.akka"             %% "akka-slf4j"                           % akkaVersion
