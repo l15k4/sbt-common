@@ -20,6 +20,7 @@ lazy val `sbt-common` = (project in file("."))
     addSbtPlugin("net.virtual-void"               % "sbt-dependency-graph"  % "0.8.2"),
     addSbtPlugin("com.timgroup"                   % "sbt-utc"               % "0.0.14"),
     addSbtPlugin("pl.project13.scala"             % "sbt-jmh"               % "0.2.27"),
+    addSbtPlugin("org.scala-js"                   % "sbt-scalajs"           % "0.6.20"),
     addCompilerPlugin("com.softwaremill.clippy"   %% "plugin"               % "0.5.3" classifier "bundle"),
     addCompilerPlugin("com.lihaoyi"               %% "acyclic"              % "0.1.7")
   )
