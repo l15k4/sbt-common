@@ -87,8 +87,4 @@ trait Dependencies {
                                         "org.slf4j"                     %     "slf4j-api"                             % "1.7.25",
                                         "com.typesafe.scala-logging"    %%    "scala-logging"                         % "3.7.2"
                                       )
-  lazy val uaDetector                 = Seq(
-                                        "javax.servlet"                 %     "javax.servlet-api"                     % "3.1.0",
-                                        "net.sf.uadetector"             %     "uadetector-resources"                  % "2014.10"
-                                      )
 }
