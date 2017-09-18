@@ -13,7 +13,7 @@ trait Dependencies {
   lazy val scalaJsDom                 = "org.scala-js"                  %%%!  "scalajs-dom"                           % "0.9.2"
   lazy val scalaTags                  = "com.lihaoyi"                   %%%!  "scalatags"                             % "0.6.5"
   lazy val prickle                    = "com.github.benhutchison"       %%%!  "prickle"                               % "1.1.13"
-  lazy val utest                      = "com.lihaoyi"                   %%%!  "utest"                                 % "0.4.8"                 % "test"
+  lazy val utest                      = "com.lihaoyi"                   %%%!  "utest"                                 % "0.5.3"                 % "test"
 
   lazy val awsS3                      = "com.amazonaws"                 %     "aws-java-sdk-s3"                       % "1.11.119"
   lazy val loggingImplLog4j           = "org.slf4j"                     %     "slf4j-log4j12"                         % "1.7.25"
