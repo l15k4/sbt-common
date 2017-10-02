@@ -17,6 +17,7 @@ trait Dependencies {
   lazy val utest                      = "com.lihaoyi"                   %%%!  "utest"                                 % "0.5.3"                 % "test"
 
   lazy val awsS3                      = "com.amazonaws"                 %     "aws-java-sdk-s3"                       % "1.11.119"
+  lazy val awsSNS                     = "com.amazonaws"                 %     "aws-java-sdk-sns"                      % "1.11.119"
   lazy val loggingImplLog4j           = "org.slf4j"                     %     "slf4j-log4j12"                         % "1.7.25"
   lazy val loggingImplLogback         = "ch.qos.logback"                %     "logback-classic"                       % "1.2.3"
   lazy val guava                      = "com.google.guava"              %     "guava"                                 % "23.0"
