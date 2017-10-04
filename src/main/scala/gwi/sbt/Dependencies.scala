@@ -5,9 +5,9 @@ import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
 
 trait Dependencies {
 
-  lazy val akkaVersion                = "2.4.20"
-  lazy val alpakkaVersion             = "0.11"
-  lazy val akkaHttpVersion            = "10.0.9"
+  lazy val akkaVersion                = "2.5.6"
+  lazy val alpakkaVersion             = "0.13"
+  lazy val akkaHttpVersion            = "10.0.10"
   lazy val jacksonVersion             = "2.8.8"
 
   lazy val scalaJsDom                 = "org.scala-js"                  %%%!  "scalajs-dom"                           % "0.9.2"
@@ -55,7 +55,7 @@ trait Dependencies {
   lazy val akkaClusterCustomDowning   = "com.github.TanUkkii007"        %%    "akka-cluster-custom-downing"           % "0.0.7"
   lazy val akkaDistributedData        = "com.typesafe.akka"             %%    "akka-distributed-data-experimental"    % akkaVersion
   lazy val akkaPersistence            = "com.typesafe.akka"             %%    "akka-persistence"                      % akkaVersion
-  lazy val akkaPersistenceRedis       = "com.hootsuite"                 %%    "akka-persistence-redis"                % "0.8.0"
+  lazy val akkaPersistenceRedis       = "com.safety-data"               %%    "akka-persistence-redis"                % "0.3.0"
   lazy val akkaKryoSerialization      = "com.github.romix.akka"         %%    "akka-kryo-serialization"               % "0.5.2"
   lazy val akkaTestkit                = "com.typesafe.akka"             %%    "akka-testkit"                          % akkaVersion             % "test"
   lazy val akkaMockScheduler          = "com.miguno.akka"               %%    "akka-mock-scheduler"                   % "0.5.1"                 % "test"
