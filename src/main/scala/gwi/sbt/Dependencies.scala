@@ -27,32 +27,32 @@ trait Dependencies {
   lazy val commonsMath                = "org.apache.commons"            %     "commons-math3"                         % "3.6.1"
   lazy val sprayJson                  = "io.spray"                      %%    "spray-json"                            % "1.3.3"
   lazy val scalaRedis                 = "net.debasishg"                 %%    "redisclient"                           % "3.4"
-  lazy val algebird                   = "com.twitter"                   %%    "algebird-core"                         % "0.13.0"
+  lazy val algebird                   = "com.twitter"                   %%    "algebird-core"                         % "0.13.3"
   lazy val monix                      = "io.monix"                      %%    "monix"                                 % "2.3.0"
   lazy val typesafeConfig             = "com.typesafe"                  %     "config"                                % "1.3.1"
   lazy val configAnnotation           = "com.wacai"                     %%    "config-annotation"                     % "0.3.7"
-  lazy val kafkaClients               = "org.apache.kafka"              %     "kafka-clients"                         % "0.11.0.0"
-  lazy val scalaMeta                  = "org.scalameta"                 %%    "scalameta"                             % "1.8.0"
+  lazy val kafkaClients               = "org.apache.kafka"              %     "kafka-clients"                         % "0.11.0.1"
+  lazy val scalaMeta                  = "org.scalameta"                 %%    "scalameta"                             % "2.0.1"
   lazy val cassandraDriver            = "com.datastax.cassandra"        %     "cassandra-driver-core"                 % "3.2.0"
   lazy val cassandraDriverNettyEpoll  = "io.netty"                      %     "netty-transport-native-epoll"          % "4.0.44.Final" classifier "linux-x86_64"
   lazy val snappy                     = "org.xerial.snappy"             %     "snappy-java"                           % "1.1.2.6"
   lazy val asciiGraphs                = "com.github.mdr"                %%    "ascii-graphs"                          % "0.0.7"
-  lazy val pprint                     = "com.lihaoyi"                   %%    "pprint"                                % "0.5.2"
+  lazy val pprint                     = "com.lihaoyi"                   %%    "pprint"                                % "0.5.3"
 
   lazy val akkaActor                  = "com.typesafe.akka"             %%    "akka-actor"                            % akkaVersion
   lazy val akkaSlf4j                  = "com.typesafe.akka"             %%    "akka-slf4j"                            % akkaVersion
   lazy val akkaStream                 = "com.typesafe.akka"             %%    "akka-stream"                           % akkaVersion
   lazy val akkaStreamTestkit          = "com.typesafe.akka"             %%    "akka-stream-testkit"                   % akkaVersion
-  lazy val akkaStreamKafka            = "com.typesafe.akka"             %%    "akka-stream-kafka"                     % "0.16"
+  lazy val akkaStreamKafka            = "com.typesafe.akka"             %%    "akka-stream-kafka"                     % "0.17"
   lazy val akkaHttp                   = "com.typesafe.akka"             %%    "akka-http"                             % akkaHttpVersion
-  lazy val akkaHttpCors               = "ch.megard"                     %%    "akka-http-cors"                        % "0.2.1"
+  lazy val akkaHttpCors               = "ch.megard"                     %%    "akka-http-cors"                        % "0.2.2"
   lazy val akkaHttpSprayJson          = "com.typesafe.akka"             %%    "akka-http-spray-json"                  % akkaHttpVersion
   lazy val akkaHttpTestkit            = "com.typesafe.akka"             %%    "akka-http-testkit"                     % akkaHttpVersion         % "test"
   lazy val akkaRemote                 = "com.typesafe.akka"             %%    "akka-remote"                           % akkaVersion
   lazy val akkaCluster                = "com.typesafe.akka"             %%    "akka-cluster"                          % akkaVersion
   lazy val akkaClusterTools           = "com.typesafe.akka"             %%    "akka-cluster-tools"                    % akkaVersion
   lazy val akkaClusterSharding        = "com.typesafe.akka"             %%    "akka-cluster-sharding"                 % akkaVersion
-  lazy val akkaClusterCustomDowning   = "com.github.TanUkkii007"        %%    "akka-cluster-custom-downing"           % "0.0.7"
+  lazy val akkaClusterCustomDowning   = "com.github.TanUkkii007"        %%    "akka-cluster-custom-downing"           % "0.0.8"
   lazy val akkaDistributedData        = "com.typesafe.akka"             %%    "akka-distributed-data-experimental"    % akkaVersion
   lazy val akkaPersistence            = "com.typesafe.akka"             %%    "akka-persistence"                      % akkaVersion
   lazy val akkaPersistenceRedis       = "com.safety-data"               %%    "akka-persistence-redis"                % "0.3.0"
@@ -68,7 +68,7 @@ trait Dependencies {
   lazy val alpakkaCassandra           = "com.lightbend.akka"            %%    "akka-stream-alpakka-cassandra"         % alpakkaVersion
 
   lazy val ammonite                   = "com.lihaoyi"                   %     "ammonite"                              % "1.0.2"                 % "test" cross CrossVersion.full
-  lazy val scalatest                  = "org.scalatest"                 %%    "scalatest"                             % "3.0.3"                 % "test"
+  lazy val scalatest                  = "org.scalatest"                 %%    "scalatest"                             % "3.0.4"                 % "test"
   lazy val scalameter                 = "com.storm-enroute"             %%    "scalameter"                            % "0.8.2"                 % "test"
   lazy val s3mock                     = "io.findify"                    %%    "s3mock"                                % "0.2.3"                 % "test"
 
