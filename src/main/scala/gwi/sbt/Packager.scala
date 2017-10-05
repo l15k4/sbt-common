@@ -41,6 +41,7 @@ trait Packager extends Dependencies {
   def assemblySettings(appName: String, mainClassFqn: Option[String]) = {
     Seq(
       /* FAT JAR */
+      libraryDependencies ++= clist,
       assembleArtifact := true,
       assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false, includeDependency = false),
       assemblyJarName in assembly := s"$appName.jar",
@@ -55,7 +56,8 @@ trait Packager extends Dependencies {
       aggregate in assembly := false,
       aggregate in assemblyPackageDependency := false,
       assemblyOutputPath in assembly := workingDir.value / "bin" / (assemblyJarName in assembly).value,
-      assemblyOutputPath in assemblyPackageDependency := workingDir.value / "bin" / (assemblyJarName in assemblyPackageDependency).value
+      assemblyOutputPath in assemblyPackageDependency := workingDir.value / "bin" / (assemblyJarName in assemblyPackageDependency).value,
+      assembly := (assembly dependsOn clean).value
     )
   }
 
@@ -72,7 +74,7 @@ trait Packager extends Dependencies {
 
   def deploySettings(baseImageName: String, repoName: String, appName: String, mainClassFqn: String, extraClasspath: Option[String] = None) = {
     Seq(
-      docker := (docker dependsOn(clean, assembly, assemblyPackageDependency)).value,
+      docker := (docker dependsOn(assembly, assemblyPackageDependency)).value,
       dockerfile in docker :=
         new Dockerfile {
           from(baseImageName)
@@ -90,7 +92,7 @@ trait Packager extends Dependencies {
 
   def copyJarTo(baseImageName: String, repoName: String, appName: String, baseAppName: String) =
     Seq(
-      docker := (docker dependsOn(clean, assembly, assemblyPackageDependency)).value,
+      docker := (docker dependsOn(assembly, assemblyPackageDependency)).value,
       dockerfile in docker :=
         new Dockerfile {
           from(baseImageName)
