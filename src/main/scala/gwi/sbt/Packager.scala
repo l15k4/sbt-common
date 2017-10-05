@@ -41,7 +41,6 @@ trait Packager extends Dependencies {
   def assemblySettings(appName: String, mainClassFqn: Option[String]) = {
     Seq(
       /* FAT JAR */
-      libraryDependencies ++= clist,
       assembleArtifact := true,
       assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false, includeDependency = false),
       assemblyJarName in assembly := s"$appName.jar",
@@ -73,7 +72,7 @@ trait Packager extends Dependencies {
 
   def deploySettings(baseImageName: String, repoName: String, appName: String, mainClassFqn: String, extraClasspath: Option[String] = None) = {
     Seq(
-      docker := (docker dependsOn(assembly, assemblyPackageDependency)).value,
+      docker := (docker dependsOn(clean, assembly, assemblyPackageDependency)).value,
       dockerfile in docker :=
         new Dockerfile {
           from(baseImageName)
@@ -91,7 +90,7 @@ trait Packager extends Dependencies {
 
   def copyJarTo(baseImageName: String, repoName: String, appName: String, baseAppName: String) =
     Seq(
-      docker := (docker dependsOn(assembly, assemblyPackageDependency)).value,
+      docker := (docker dependsOn(clean, assembly, assemblyPackageDependency)).value,
       dockerfile in docker :=
         new Dockerfile {
           from(baseImageName)
