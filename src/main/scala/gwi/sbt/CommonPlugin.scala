@@ -33,7 +33,6 @@ object CommonPlugin extends AutoPlugin with Dependencies {
       "-Ywarn-nullary-override", "-Ywarn-nullary-unit", "-Yno-adapted-args"
     ),
     autoCompilerPlugins := true,
-    publish := { }, // if project wants to publish, it should override it with Packager.publishSettings
     publishArtifact := false,
     assembleArtifact := false,
     resolvers ++= Seq(
