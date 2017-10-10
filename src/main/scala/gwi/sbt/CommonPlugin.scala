@@ -33,8 +33,9 @@ object CommonPlugin extends AutoPlugin with Dependencies {
       "-Ywarn-nullary-override", "-Ywarn-nullary-unit", "-Yno-adapted-args"
     ),
     autoCompilerPlugins := true,
-    publishArtifact := false, // if project wants to publish, it should override it with Packager.publishSettings
-    assembleArtifact := false, // if project wants to publish, it should override it with Packager.assemblySettings
+    publish := { }, // if project wants to publish, it should override it with Packager.publishSettings
+    publishArtifact := false,
+    assembleArtifact := false,
     resolvers ++= Seq(
       Resolver.mavenLocal,
       Resolver.sonatypeRepo("snapshots"),

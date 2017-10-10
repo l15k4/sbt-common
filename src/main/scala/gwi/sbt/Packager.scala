@@ -74,7 +74,6 @@ trait Packager extends Dependencies {
 
   def deploySettings(baseImageName: String, repoName: String, appName: String, mainClassFqn: String, extraClasspath: Option[String] = None) = {
     Seq(
-      publish := { },
       docker := (docker dependsOn(assembly, assemblyPackageDependency)).value,
       dockerfile in docker :=
         new Dockerfile {
