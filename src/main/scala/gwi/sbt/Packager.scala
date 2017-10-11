@@ -1,11 +1,12 @@
 package gwi.sbt
 
-import sbt.Keys._
+import sbt.Keys.{parallelExecution, _}
 import sbt.{File, _}
 import sbtassembly.AssemblyPlugin.autoImport._
 import sbtdocker.DockerPlugin
 import sbtdocker.DockerPlugin.autoImport._
 import sbtdocker.mutable.Dockerfile
+import sbtdocker.DockerKeys.dockerBuildAndPush
 
 trait Packager extends Dependencies {
 
@@ -69,6 +70,10 @@ trait Packager extends Dependencies {
         assemblyOutputPath in assembly := workingDir.value / "bin" / (assemblyJarName in assembly).value,
         assemblyOutputPath in assemblyPackageDependency := workingDir.value / "bin" / (assemblyJarName in assemblyPackageDependency).value,
         assembly := (assembly dependsOn clean).value,
+        concurrentRestrictions in docker += Tags.limit(Tags.All, 1),
+        parallelExecution in docker := false,
+        concurrentRestrictions in dockerBuildAndPush += Tags.limit(Tags.All, 1),
+        parallelExecution in dockerBuildAndPush := false,
         docker := (docker dependsOn(assembly, assemblyPackageDependency)).value,
         dockerfile in docker :=
           new Dockerfile {
