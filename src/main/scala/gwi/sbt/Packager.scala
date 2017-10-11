@@ -48,7 +48,7 @@ trait Packager extends Dependencies {
       .map(partialPath => (sourceDirectory + partialPath, targetDirectory + partialPath))
   }
 
-  def deploy(baseImageName: String, repoName: String, appName: String, mainClassFqn: String, unmanagedJarFiles: Seq[File] = Seq.empty, confOpt: Option[Configuration]) = {
+  def deploy(baseImageName: String, repoName: String, appName: String, mainClassFqn: String, unmanagedJarFiles: Seq[File] = Seq.empty, confOpt: Option[Configuration] = Option.empty) = {
     val workingDir = SettingKey[File]("working-dir", "Working directory path for running applications")
     val deploySettings =
       Seq(
