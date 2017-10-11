@@ -49,13 +49,7 @@ object CommonPlugin extends AutoPlugin with Dependencies {
     parallelExecution in IntegrationTest := false,
     testForkedParallel in IntegrationTest := false,
     testForkedParallel in Test := false,
-    concurrentRestrictions in Test += Tags.limit(Tags.Test, 1),
-    sourceGenerators in Test += Def.task {
-      val file = (sourceManaged in Test).value / "amm.scala"
-      IO.write(file, """object amm extends App { ammonite.Main().run() }""")
-      Seq(file)
-    }.taskValue,
-    libraryDependencies += ammonite
+    concurrentRestrictions in Test += Tags.limit(Tags.Test, 1)
   )
 
   override def globalSettings: Seq[_root_.sbt.Def.Setting[_]] = Seq(
