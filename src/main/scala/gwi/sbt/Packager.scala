@@ -60,7 +60,7 @@ trait Packager extends Dependencies {
       taskKey := ((taskKey in first) dependsOn(taskKey in second) dependsOn(taskKey in third) dependsOn(taskKey in fourth)).value
   }
 
-  case class DeployDef(conf: Configuration, baseImageName: String, repoName: String, appName: String, mainClassFqn: String, unmanagedJarFiles: Seq[File] = Seq.empty)
+  case class DeployDef(conf: Configuration, baseImageName: String, repoName: String, appName: String, mainClassFqn: String, unmanagedJarFileBasePaths: Seq[String] = Seq.empty)
   def deployMultiple(deployDefs: DeployDef*): Seq[Def.Setting[_]] =
     deployDefs.flatMap { case DeployDef(conf, baseImageName, repoName, appName, mainClassFqn, unmanagedJarFiles) =>
       inConfig(conf)(DockerPlugin.projectSettings ++ deploy(baseImageName, repoName, appName, mainClassFqn, unmanagedJarFiles))
@@ -70,7 +70,7 @@ trait Packager extends Dependencies {
       chainDeps(dockerBuildAndPush, deployDefs.map(_.conf))
     )
 
-  def deploy(baseImageName: String, repoName: String, appName: String, mainClassFqn: String, unmanagedJarFiles: Seq[File] = Seq.empty): Seq[Def.Setting[_]] = {
+  def deploy(baseImageName: String, repoName: String, appName: String, mainClassFqn: String, unmanagedJarFileBasePaths: Seq[String] = Seq.empty): Seq[Def.Setting[_]] = {
     val workingDir = SettingKey[File]("working-dir", "Working directory path for running applications")
     Seq(
       assembleArtifact := true,
@@ -81,7 +81,7 @@ trait Packager extends Dependencies {
       cleanFiles += baseDirectory.value / "deploy" / "bin",
       baseDirectory in run := workingDir.value,
       baseDirectory in runMain := workingDir.value,
-      unmanagedJars in Compile ++= unmanagedJarFiles,
+      unmanagedJars in Compile ++= unmanagedJarFileBasePaths.map(baseDirectory.value / _),
       test in assembly := {},
       test in assemblyPackageDependency := {},
       mainClass in assembly := Some(mainClassFqn),
