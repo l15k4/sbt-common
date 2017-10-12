@@ -49,7 +49,7 @@ trait Packager extends Dependencies {
       .map(partialPath => (sourceDirectory + partialPath, targetDirectory + partialPath))
   }
 
-  private def chainDeps[T](taskKey: TaskKey[T], confs: Seq[Configuration]): Def.Setting[Task[T]] = confs match {
+  private def chainDeps[T](taskKey: TaskKey[T], confs: Seq[Configuration]): Def.Setting[Task[T]] = confs.toList match {
     case xs if xs.isEmpty || xs.size == 1 || xs.size > 4 =>
       sys.error("It is possible to chain only 2-4 tasks !!! ")
     case first :: second :: Nil =>
