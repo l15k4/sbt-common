@@ -70,44 +70,51 @@ trait Packager extends Dependencies {
       chainDeps(dockerBuildAndPush, deployDefs.map(_.conf))
     )
 
-  def deploy(baseImageName: String, repoName: String, appName: String, mainClassFqn: String, unmanagedJarFileBasePaths: Seq[String] = Seq.empty): Seq[Def.Setting[_]] = {
+  def deploy(baseImageName: String, repoName: String, appName: String, mainClassFqn: String, unmanagedJarFileBasePaths: Seq[String], confOpt: Option[Configuration] = Option.empty): Seq[Def.Setting[_]] = {
     val workingDir = SettingKey[File]("working-dir", "Working directory path for running applications")
-    Seq(
-      assembleArtifact := true,
-      assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false, includeDependency = false),
-      assemblyJarName in assembly := s"$appName.jar",
-      assemblyJarName in assemblyPackageDependency := s"$appName-deps.jar",
-      workingDir := baseDirectory.value / "deploy",
-      cleanFiles += baseDirectory.value / "deploy" / "bin",
-      baseDirectory in run := workingDir.value,
-      baseDirectory in runMain := workingDir.value,
-      unmanagedJars in Compile ++= unmanagedJarFileBasePaths.map(baseDirectory.value / _),
-      test in assembly := {},
-      test in assemblyPackageDependency := {},
-      mainClass in assembly := Some(mainClassFqn),
-      aggregate in assembly := false,
-      aggregate in assemblyPackageDependency := false,
-      assemblyOutputPath in assembly := workingDir.value / "bin" / (assemblyJarName in assembly).value,
-      assemblyOutputPath in assemblyPackageDependency := workingDir.value / "bin" / (assemblyJarName in assemblyPackageDependency).value,
-      assembly := (assembly dependsOn clean).value,
-      concurrentRestrictions in docker += Tags.limit(Tags.All, 1),
-      parallelExecution in docker := false,
-      concurrentRestrictions in dockerBuildAndPush += Tags.limit(Tags.All, 1),
-      parallelExecution in dockerBuildAndPush := false,
-      docker := (docker dependsOn(assembly, assemblyPackageDependency)).value,
-      dockerfile in docker :=
-        new Dockerfile {
-          from(baseImageName)
-          run("/bin/mkdir", s"/opt/$appName")
-          deployFileMappings(workingDir.value.absolutePath, s"/opt/$appName").map { case (sourcePath, targetPath) => copy(new File(sourcePath), new File(targetPath)) }
-          workDir(s"/opt/$appName")
-          entryPoint("java", "-cp", s"bin/*", mainClassFqn)
-        },
-      imageNames in docker := Seq(
-        ImageName(s"$repoName/$appName:${version.value}"),
-        ImageName(s"$repoName/$appName:latest")
+    def deploySettings =
+      Seq(
+        assembleArtifact := true,
+        assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false, includeDependency = false),
+        assemblyJarName in assembly := s"$appName.jar",
+        assemblyJarName in assemblyPackageDependency := s"$appName-deps.jar",
+        workingDir := baseDirectory.value / "deploy",
+        cleanFiles += baseDirectory.value / "deploy" / "bin",
+        baseDirectory in run := workingDir.value,
+        baseDirectory in runMain := workingDir.value,
+        unmanagedJars in Compile ++= unmanagedJarFileBasePaths.map(baseDirectory.value / _),
+        test in assembly := {},
+        test in assemblyPackageDependency := {},
+        mainClass in assembly := Some(mainClassFqn),
+        aggregate in assembly := false,
+        aggregate in assemblyPackageDependency := false,
+        assemblyOutputPath in assembly := workingDir.value / "bin" / (assemblyJarName in assembly).value,
+        assemblyOutputPath in assemblyPackageDependency := workingDir.value / "bin" / (assemblyJarName in assemblyPackageDependency).value,
+        assembly := (assembly dependsOn clean).value,
+        concurrentRestrictions in docker += Tags.limit(Tags.All, 1),
+        parallelExecution in docker := false,
+        concurrentRestrictions in dockerBuildAndPush += Tags.limit(Tags.All, 1),
+        parallelExecution in dockerBuildAndPush := false,
+        docker := (docker dependsOn(assembly, assemblyPackageDependency)).value,
+        dockerfile in docker :=
+          new Dockerfile {
+            from(baseImageName)
+            run("/bin/mkdir", s"/opt/$appName")
+            deployFileMappings(workingDir.value.absolutePath, s"/opt/$appName").map { case (sourcePath, targetPath) => copy(new File(sourcePath), new File(targetPath)) }
+            workDir(s"/opt/$appName")
+            entryPoint("java", "-cp", s"bin/*", mainClassFqn)
+          },
+        imageNames in docker := Seq(
+          ImageName(s"$repoName/$appName:${version.value}"),
+          ImageName(s"$repoName/$appName:latest")
+        )
       )
-    )
+    confOpt match {
+      case Some(conf) =>
+        inConfig(conf)(DockerPlugin.projectSettings ++ deploySettings)
+      case None =>
+        deploySettings
+    }
   }
 
 }
