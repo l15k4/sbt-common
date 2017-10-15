@@ -2,6 +2,7 @@ package gwi.sbt
 
 import sbt.Keys.{parallelExecution, _}
 import sbt.{Def, File, _}
+import sbtassembly.AssemblyPlugin
 import sbtassembly.AssemblyPlugin.autoImport._
 import sbtdocker.DockerPlugin
 import sbtdocker.DockerPlugin.autoImport._
@@ -111,7 +112,7 @@ trait Packager extends Dependencies {
       )
     confOpt match {
       case Some(conf) =>
-        inConfig(conf)(DockerPlugin.projectSettings ++ deploySettings)
+        inConfig(conf)(DockerPlugin.projectSettings ++ AssemblyPlugin.baseAssemblySettings ++ deploySettings)
       case None =>
         deploySettings
     }
