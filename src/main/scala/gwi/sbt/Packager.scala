@@ -70,6 +70,7 @@ trait Packager extends Dependencies {
         assembleArtifact := true,
         assemblyMergeStrategy in assembly := {
           case PathList("reference.conf")                           => MergeStrategy.concat
+          case PathList("application.conf")                         => MergeStrategy.concat
           case PathList("META-INF", "io.netty.versions.properties") => MergeStrategy.first
           case x                                                    => MergeStrategy.defaultMergeStrategy(x)
         },
