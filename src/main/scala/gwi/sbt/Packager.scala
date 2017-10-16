@@ -68,6 +68,11 @@ trait Packager extends Dependencies {
     def settings =
       Seq(
         assembleArtifact := true,
+        assemblyMergeStrategy in assembly := {
+          case PathList("reference.conf")                           => MergeStrategy.concat
+          case PathList("META-INF", "io.netty.versions.properties") => MergeStrategy.first
+          case x                                                    => MergeStrategy.defaultMergeStrategy(x)
+        },
         assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false, includeDependency = false),
         assemblyJarName in assembly := s"$appName.jar",
         assemblyJarName in assemblyPackageDependency := s"$appName-deps.jar",
