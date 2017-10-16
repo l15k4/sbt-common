@@ -51,8 +51,10 @@ trait Packager extends Dependencies {
   }
 
   private def chainDeps[T](taskKey: TaskKey[T], confs: Seq[Configuration]): Def.Setting[Task[T]] = confs.toList match {
-    case xs if xs.isEmpty || xs.size == 1 || xs.size > 4 =>
+    case xs if xs.isEmpty || xs.size > 4 =>
       sys.error("It is possible to chain only 2-4 tasks !!! ")
+    case first :: Nil =>
+      taskKey := (taskKey in first).value
     case first :: second :: Nil =>
       taskKey := ((taskKey in first) dependsOn(taskKey in second)).value
     case first :: second :: third :: Nil =>
@@ -61,19 +63,9 @@ trait Packager extends Dependencies {
       taskKey := ((taskKey in first) dependsOn(taskKey in second) dependsOn(taskKey in third) dependsOn(taskKey in fourth)).value
   }
 
-  case class DeployDef(conf: Configuration, baseImageName: String, repoName: String, appName: String, mainClassFqn: String, unmanagedJarFileBasePaths: Seq[String] = Seq.empty)
-  def deployMultiple(deployDefs: DeployDef*): Seq[Def.Setting[_]] =
-    deployDefs.flatMap { case DeployDef(conf, baseImageName, repoName, appName, mainClassFqn, unmanagedJarFiles) =>
-      inConfig(conf)(DockerPlugin.projectSettings ++ deploy(baseImageName, repoName, appName, mainClassFqn, unmanagedJarFiles))
-    } ++ Seq(
-      chainDeps(docker, deployDefs.map(_.conf)),
-      chainDeps(dockerPush, deployDefs.map(_.conf)),
-      chainDeps(dockerBuildAndPush, deployDefs.map(_.conf))
-    )
-
-  def deploy(baseImageName: String, repoName: String, appName: String, mainClassFqn: String, unmanagedJarFileBasePaths: Seq[String], confOpt: Option[Configuration] = Option.empty): Seq[Def.Setting[_]] = {
+  private def deploySettings(conf: Configuration, baseImageName: String, repoName: String, appName: String, mainClassFqn: String, unmanagedJarFileBasePaths: Seq[String]): Seq[Def.Setting[_]] = {
     val workingDir = SettingKey[File]("working-dir", "Working directory path for running applications")
-    def deploySettings =
+    def settings =
       Seq(
         assembleArtifact := true,
         assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false, includeDependency = false),
@@ -110,12 +102,18 @@ trait Packager extends Dependencies {
           ImageName(s"$repoName/$appName:latest")
         )
       )
-    confOpt match {
-      case Some(conf) =>
-        inConfig(conf)(DockerPlugin.projectSettings ++ AssemblyPlugin.baseAssemblySettings ++ deploySettings)
-      case None =>
-        deploySettings
-    }
+    inConfig(conf)(DockerPlugin.projectSettings ++ AssemblyPlugin.baseAssemblySettings ++ settings)
   }
+
+  case class DeployDef(conf: Configuration, baseImageName: String, repoName: String, appName: String, mainClassFqn: String, unmanagedJarFileBasePaths: Seq[String] = Seq.empty)
+
+  def deploy(deployDefs: DeployDef*): Seq[Def.Setting[_]] =
+    deployDefs.flatMap { case DeployDef(conf, baseImageName, repoName, appName, mainClassFqn, unmanagedJarFiles) =>
+      deploySettings(conf, baseImageName, repoName, appName, mainClassFqn, unmanagedJarFiles)
+    } ++ Seq(
+      chainDeps(docker, deployDefs.map(_.conf)),
+      chainDeps(dockerPush, deployDefs.map(_.conf)),
+      chainDeps(dockerBuildAndPush, deployDefs.map(_.conf))
+    )
 
 }
