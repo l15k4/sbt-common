@@ -108,7 +108,7 @@ trait Packager extends Dependencies {
           ImageName(s"$repoName/$appName:latest")
         )
       )
-    inConfig(conf)(DockerPlugin.projectSettings ++ AssemblyPlugin.baseAssemblySettings ++ settings)
+    inConfig(conf)(Defaults.projectTasks ++ DockerPlugin.projectSettings ++ AssemblyPlugin.baseAssemblySettings ++ settings)
   }
 
   case class DeployDef(conf: Configuration, baseImageName: String, repoName: String, appName: String, mainClassFqn: String, unmanagedJarFileBasePaths: Seq[String] = Seq.empty)
