@@ -11,6 +11,7 @@ trait Dependencies {
   lazy val jacksonVersion             = "2.8.8"
 
   lazy val scalaJsDom                 = "org.scala-js"                  %%%!  "scalajs-dom"                           % "0.9.3"
+  lazy val scalaJsJavaTime            = "org.scala-js"                  %%%!  "scalajs-java-time"                     % "0.2.2"
   lazy val scalaTags                  = "com.lihaoyi"                   %%%!  "scalatags"                             % "0.6.7"
   lazy val prickle                    = "com.github.benhutchison"       %%%!  "prickle"                               % "1.1.14"
   lazy val scalaRx                    = "com.lihaoyi"                   %%%!  "scalarx"                               % "0.3.2"
