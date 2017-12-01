@@ -10,7 +10,7 @@ import sbtassembly.AssemblyPlugin.autoImport._
 object CommonPlugin extends AutoPlugin with Dependencies {
 
   object autoImport extends Packager {
-    lazy val s3Resolver = "S3 Snapshots" at "s3://public.maven.globalwebindex.net.s3-website-eu-west-1.amazonaws.com/snapshots"
+    lazy val s3Resolver = "S3 Snapshots" at "s3://public.maven.globalwebindex.net.s3-eu-west-1.amazonaws.com/snapshots"
   }
 
   def cleanStaging = Command.command("clean-staging") { currentState =>

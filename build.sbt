@@ -14,7 +14,7 @@ lazy val `sbt-common` = (project in file("."))
     addSbtPlugin("com.timushev.sbt"               % "sbt-updates"           % "0.3.1"),
     addSbtPlugin("com.jsuereth"                   % "sbt-pgp"               % "1.0.0"),
     addSbtPlugin("com.eed3si9n"                   % "sbt-assembly"          % "0.14.5"),
-    addSbtPlugin("com.frugalmechanic"             % "fm-sbt-s3-resolver"    % "0.9.0"),
+    addSbtPlugin("com.frugalmechanic"             % "fm-sbt-s3-resolver"    % "0.13.0"),
     addSbtPlugin("se.marcuslonnberg"              % "sbt-docker"            % "1.4.1"),
     addSbtPlugin("net.virtual-void"               % "sbt-dependency-graph"  % "0.8.2"),
     addSbtPlugin("com.timgroup"                   % "sbt-utc"               % "0.0.14"),
