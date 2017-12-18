@@ -6,7 +6,7 @@ import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
 trait Dependencies {
 
   lazy val akkaVersion                = "2.5.6"
-  lazy val alpakkaVersion             = "0.13"
+  lazy val alpakkaVersion             = "0.15"
   lazy val akkaHttpVersion            = "10.0.10"
   lazy val jacksonVersion             = "2.8.8"
 
