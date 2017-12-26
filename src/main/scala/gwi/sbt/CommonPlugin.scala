@@ -2,6 +2,7 @@ package gwi.sbt
 
 import java.util.TimeZone
 
+import org.joda.time.DateTimeZone
 import sbt.Keys._
 import sbt._
 import sbt.plugins.JvmPlugin
@@ -44,7 +45,12 @@ object CommonPlugin extends AutoPlugin with Dependencies {
       autoImport.s3Resolver
     ),
     /* sensible default test settings */
-    testOptions in Test ++= Seq(Tests.Argument("-oDFI"), Tests.Setup(() => TimeZone.setDefault(TimeZone.getTimeZone("UTC")))),
+    javaOptions += "-Duser.timezone=UTC",
+    envVars ++= Map("TZ" -> "UTC"),
+    testOptions in Test ++= Seq(
+      Tests.Argument("-oDFI"),
+      Tests.Setup { () => TimeZone.setDefault(TimeZone.getTimeZone("UTC")); DateTimeZone.setDefault(DateTimeZone.UTC) }
+    ),
     parallelExecution in Test := false,
     parallelExecution in IntegrationTest := false,
     testForkedParallel in IntegrationTest := false,
