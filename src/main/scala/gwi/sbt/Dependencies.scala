@@ -1,11 +1,11 @@
 package gwi.sbt
 
-import sbt._
 import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
+import sbt._
 
 trait Dependencies {
 
-  lazy val akkaVersion                = "2.5.6"
+  lazy val akkaVersion                = "2.5.8"
   lazy val alpakkaVersion             = "0.15"
   lazy val akkaHttpVersion            = "10.0.10"
   lazy val jacksonVersion             = "2.8.8"
@@ -53,7 +53,7 @@ trait Dependencies {
   lazy val akkaCluster                = "com.typesafe.akka"             %%    "akka-cluster"                          % akkaVersion
   lazy val akkaClusterTools           = "com.typesafe.akka"             %%    "akka-cluster-tools"                    % akkaVersion
   lazy val akkaClusterSharding        = "com.typesafe.akka"             %%    "akka-cluster-sharding"                 % akkaVersion
-  lazy val akkaClusterCustomDowning   = "com.github.TanUkkii007"        %%    "akka-cluster-custom-downing"           % "0.0.8"
+  lazy val akkaClusterCustomDowning   = "com.github.TanUkkii007"        %%    "akka-cluster-custom-downing"           % "0.0.9"
   lazy val akkaDistributedData        = "com.typesafe.akka"             %%    "akka-distributed-data-experimental"    % akkaVersion
   lazy val akkaPersistence            = "com.typesafe.akka"             %%    "akka-persistence"                      % akkaVersion
   lazy val akkaPersistenceRedis       = "com.safety-data"               %%    "akka-persistence-redis"                % "0.3.0"
