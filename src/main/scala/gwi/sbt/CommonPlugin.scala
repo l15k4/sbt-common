@@ -45,8 +45,6 @@ object CommonPlugin extends AutoPlugin with Dependencies {
       autoImport.s3Resolver
     ),
     /* sensible default test settings */
-    javaOptions += "-Duser.timezone=UTC",
-    envVars ++= Map("TZ" -> "UTC"),
     testOptions in Test ++= Seq(
       Tests.Argument("-oDFI"),
       Tests.Setup { () => TimeZone.setDefault(TimeZone.getTimeZone("UTC")); DateTimeZone.setDefault(DateTimeZone.UTC) }
@@ -56,9 +54,11 @@ object CommonPlugin extends AutoPlugin with Dependencies {
     testForkedParallel in IntegrationTest := false,
     testForkedParallel in Test := false,
     concurrentRestrictions in Test += Tags.limit(Tags.Test, 1)
-  )
+  ) ++ globalSettings
 
   override def globalSettings: Seq[_root_.sbt.Def.Setting[_]] = Seq(
-    cancelable := true
+    cancelable := true,
+    javaOptions += "-Duser.timezone=UTC",
+    envVars ++= Map("TZ" -> "UTC")
   )
 }
