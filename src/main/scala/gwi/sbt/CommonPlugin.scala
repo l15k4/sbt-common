@@ -14,6 +14,7 @@ object CommonPlugin extends AutoPlugin with Dependencies {
   }
 
   def cleanStaging = Command.command("clean-staging") { currentState =>
+    import scala.sys.process._
     s"rm -rf ${sys.env("HOME")}/.sbt/1.0/staging/".!
     currentState
   }
@@ -23,7 +24,7 @@ object CommonPlugin extends AutoPlugin with Dependencies {
   override def requires: Plugins = JvmPlugin
 
   override lazy val projectSettings = Seq(
-    scalaVersion := "2.12.3",
+    scalaVersion := "2.12.4",
     commands += cleanStaging,
     offline := true,
     scalacOptions ++= Seq(
