@@ -14,7 +14,7 @@ object CommonPlugin extends AutoPlugin with Dependencies {
   }
 
   def cleanStaging = Command.command("clean-staging") { currentState =>
-    s"rm -rf ${sys.env("HOME")}/.sbt/0.13/staging/".!
+    s"rm -rf ${sys.env("HOME")}/.sbt/1.0/staging/".!
     currentState
   }
 
