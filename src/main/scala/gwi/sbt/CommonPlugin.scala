@@ -26,7 +26,6 @@ object CommonPlugin extends AutoPlugin with Dependencies {
   override lazy val projectSettings = Seq(
     scalaVersion := "2.12.4",
     commands += cleanStaging,
-    offline := true,
     scalacOptions ++= Seq(
       "-unchecked", "-feature",
       "-Xlint", "-Xfuture",
