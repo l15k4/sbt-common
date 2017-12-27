@@ -71,7 +71,7 @@ trait Dependencies {
   lazy val alpakkaCassandra           = "com.lightbend.akka"            %%    "akka-stream-alpakka-cassandra"         % alpakkaVersion
 
   lazy val ammonite                   = "com.lihaoyi"                   %     "ammonite"                              % "1.0.2"                 % "test" cross CrossVersion.full
-  lazy val scalatest                  = "org.scalatest"                 %%    "scalatest"                             % "3.0.4"                 % "it,test"
+  lazy val scalatest                  = "org.scalatest"                 %%    "scalatest"                             % "3.0.4"                 % "test"
   lazy val scalatestKafka             = "net.manub"                     %%    "scalatest-embedded-kafka"              % "1.0.0"                 % "test"
   lazy val scalameter                 = "com.storm-enroute"             %%    "scalameter"                            % "0.8.2"                 % "test"
   lazy val s3mock                     = "io.findify"                    %%    "s3mock"                                % "0.2.4"                 % "test"
