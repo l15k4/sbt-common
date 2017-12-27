@@ -7,15 +7,15 @@ trait Dependencies {
 
   lazy val akkaVersion                = "2.5.8"
   lazy val alpakkaVersion             = "0.15"
-  lazy val akkaHttpVersion            = "10.0.10"
+  lazy val akkaHttpVersion            = "10.0.11"
   lazy val jacksonVersion             = "2.8.8"
 
-  lazy val scalaJsDom                 = "org.scala-js"                  %%%!  "scalajs-dom"                           % "0.9.3"
+  lazy val scalaJsDom                 = "org.scala-js"                  %%%!  "scalajs-dom"                           % "0.9.4"
   lazy val scalaJsJavaTime            = "org.scala-js"                  %%%!  "scalajs-java-time"                     % "0.2.2"
   lazy val scalaTags                  = "com.lihaoyi"                   %%%!  "scalatags"                             % "0.6.7"
   lazy val prickle                    = "com.github.benhutchison"       %%%!  "prickle"                               % "1.1.14"
   lazy val scalaRx                    = "com.lihaoyi"                   %%%!  "scalarx"                               % "0.3.2"
-  lazy val utest                      = "com.lihaoyi"                   %%%!  "utest"                                 % "0.5.4"                 % "test"
+  lazy val utest                      = "com.lihaoyi"                   %%%!  "utest"                                 % "0.6.3"                 % "test"
 
   lazy val awsS3                      = "com.amazonaws"                 %     "aws-java-sdk-s3"                       % "1.11.119"
   lazy val awsSNS                     = "com.amazonaws"                 %     "aws-java-sdk-sns"                      % "1.11.119"
@@ -23,20 +23,20 @@ trait Dependencies {
   lazy val loggingImplLogback         = "ch.qos.logback"                %     "logback-classic"                       % "1.2.3"
   lazy val guava                      = "com.google.guava"              %     "guava"                                 % "23.0"
   lazy val scalaHttp                  = "org.scalaj"                    %%    "scalaj-http"                           % "2.3.0"
-  lazy val sttp                       = "com.softwaremill.sttp"         %%    "core"                                  % "0.0.16"
+  lazy val sttp                       = "com.softwaremill.sttp"         %%    "core"                                  % "1.1.2"
   lazy val commonsNet                 = "commons-net"                   %     "commons-net"                           % "3.6"
   lazy val commonsMath                = "org.apache.commons"            %     "commons-math3"                         % "3.6.1"
   lazy val sprayJson                  = "io.spray"                      %%    "spray-json"                            % "1.3.3"
   lazy val scalaRedis                 = "net.debasishg"                 %%    "redisclient"                           % "3.4"
   lazy val algebird                   = "com.twitter"                   %%    "algebird-core"                         % "0.13.3"
-  lazy val monix                      = "io.monix"                      %%    "monix"                                 % "2.3.0"
+  lazy val monix                      = "io.monix"                      %%    "monix"                                 % "2.3.2"
   lazy val typesafeConfig             = "com.typesafe"                  %     "config"                                % "1.3.1"
   lazy val configAnnotation           = "com.wacai"                     %%    "config-annotation"                     % "0.3.7"
   lazy val kafkaClients               = "org.apache.kafka"              %     "kafka-clients"                         % "0.11.0.1"
   lazy val scalaMeta                  = "org.scalameta"                 %%    "scalameta"                             % "2.0.1"
-  lazy val cassandraDriver            = "com.datastax.cassandra"        %     "cassandra-driver-core"                 % "3.3.0"
-  lazy val cassandraDriverNettyEpoll  = "io.netty"                      %     "netty-transport-native-epoll"          % "4.1.16.Final" classifier "linux-x86_64"
-  lazy val snappy                     = "org.xerial.snappy"             %     "snappy-java"                           % "1.1.4"
+  lazy val cassandraDriver            = "com.datastax.cassandra"        %     "cassandra-driver-core"                 % "3.3.2"
+  lazy val cassandraDriverNettyEpoll  = "io.netty"                      %     "netty-transport-native-epoll"          % "4.1.19.Final" classifier "linux-x86_64"
+  lazy val snappy                     = "org.xerial.snappy"             %     "snappy-java"                           % "1.1.7.1"
   lazy val asciiGraphs                = "com.github.mdr"                %%    "ascii-graphs"                          % "0.0.7"
   lazy val pprint                     = "com.lihaoyi"                   %%    "pprint"                                % "0.5.3"
 
@@ -44,7 +44,7 @@ trait Dependencies {
   lazy val akkaSlf4j                  = "com.typesafe.akka"             %%    "akka-slf4j"                            % akkaVersion
   lazy val akkaStream                 = "com.typesafe.akka"             %%    "akka-stream"                           % akkaVersion
   lazy val akkaStreamTestkit          = "com.typesafe.akka"             %%    "akka-stream-testkit"                   % akkaVersion
-  lazy val akkaStreamKafka            = "com.typesafe.akka"             %%    "akka-stream-kafka"                     % "0.17"
+  lazy val akkaStreamKafka            = "com.typesafe.akka"             %%    "akka-stream-kafka"                     % "0.18"
   lazy val akkaHttp                   = "com.typesafe.akka"             %%    "akka-http"                             % akkaHttpVersion
   lazy val akkaHttpCors               = "ch.megard"                     %%    "akka-http-cors"                        % "0.2.2"
   lazy val akkaHttpSprayJson          = "com.typesafe.akka"             %%    "akka-http-spray-json"                  % akkaHttpVersion
@@ -71,10 +71,10 @@ trait Dependencies {
   lazy val alpakkaCassandra           = "com.lightbend.akka"            %%    "akka-stream-alpakka-cassandra"         % alpakkaVersion
 
   lazy val ammonite                   = "com.lihaoyi"                   %     "ammonite"                              % "1.0.2"                 % "test" cross CrossVersion.full
-  lazy val scalatest                  = "org.scalatest"                 %%    "scalatest"                             % "3.0.4"                 % "test"
+  lazy val scalatest                  = "org.scalatest"                 %%    "scalatest"                             % "3.0.4"                 % "it,test"
   lazy val scalatestKafka             = "net.manub"                     %%    "scalatest-embedded-kafka"              % "1.0.0"                 % "test"
   lazy val scalameter                 = "com.storm-enroute"             %%    "scalameter"                            % "0.8.2"                 % "test"
-  lazy val s3mock                     = "io.findify"                    %%    "s3mock"                                % "0.2.3"                 % "test"
+  lazy val s3mock                     = "io.findify"                    %%    "s3mock"                                % "0.2.4"                 % "test"
 
   lazy val jodaTime                   = Seq(
                                         "joda-time"                     %     "joda-time"                             % "2.9.9",
