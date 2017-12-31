@@ -6,7 +6,7 @@ import sbt._
 trait Dependencies {
 
   lazy val akkaVersion                = "2.5.8"
-  lazy val alpakkaVersion             = "0.15"
+  lazy val alpakkaVersion             = "0.15.1"
   lazy val akkaHttpVersion            = "10.0.11"
   lazy val jacksonVersion             = "2.8.8"
 
