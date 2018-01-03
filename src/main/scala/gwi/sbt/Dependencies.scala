@@ -8,7 +8,7 @@ trait Dependencies {
   lazy val akkaVersion                = "2.5.8"
   lazy val alpakkaVersion             = "0.15.1"
   lazy val akkaHttpVersion            = "10.0.11"
-  lazy val jacksonVersion             = "2.8.8"
+  lazy val jacksonVersion             = "2.9.2"
 
   lazy val scalaJsDom                 = "org.scala-js"                  %%%!  "scalajs-dom"                           % "0.9.4"
   lazy val scalaJsJavaTime            = "org.scala-js"                  %%%!  "scalajs-java-time"                     % "0.2.2"
@@ -78,7 +78,7 @@ trait Dependencies {
 
   lazy val jodaTime                   = Seq(
                                         "joda-time"                     %     "joda-time"                             % "2.9.9",
-                                        "org.joda"                      %     "joda-convert"                          % "1.8.2"
+                                        "org.joda"                      %     "joda-convert"                          % "1.9.2"
                                       )
   lazy val jackson                    = Seq(
                                         "com.fasterxml.jackson.module"  %%    "jackson-module-scala"                  % jacksonVersion,
