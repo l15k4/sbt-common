@@ -32,7 +32,7 @@ trait Dependencies {
   lazy val monix                      = "io.monix"                      %%    "monix"                                 % "2.3.2"
   lazy val typesafeConfig             = "com.typesafe"                  %     "config"                                % "1.3.1"
   lazy val configAnnotation           = "com.wacai"                     %%    "config-annotation"                     % "0.3.7"
-  lazy val kafkaClients               = "org.apache.kafka"              %     "kafka-clients"                         % "0.11.0.1"
+  lazy val kafkaClients               = "org.apache.kafka"              %     "kafka-clients"                         % "0.10.2.1"
   lazy val scalaMeta                  = "org.scalameta"                 %%    "scalameta"                             % "2.0.1"
   lazy val cassandraDriver            = "com.datastax.cassandra"        %     "cassandra-driver-core"                 % "3.3.2"
   lazy val nettyHandler               = "io.netty"                      %     "netty-handler"                         % "4.0.47.Final" classifier "linux-x86_64"
