@@ -2,11 +2,25 @@ lazy val `sbt-common` = (project in file("."))
   .settings(
     organization := "net.globalwebindex",
     name := "sbt-common",
-    version := "0.0.8",
+    version := "0.0.9",
+    licenses in ThisBuild := Seq("CC0" -> url("https://creativecommons.org/publicdomain/zero/1.0/legalcode")),
+    homepage in ThisBuild := Some(url("https://github.com/l15k4/sbt-common")),
     sbtPlugin := true,
     publishTo := Some("releases" at "https://oss.sonatype.org/" + "service/local/staging/deploy/maven2"),
     publishMavenStyle := true,
-    pomIncludeRepository := { _ => false}
+    pomIncludeRepository := { _ => false},
+    pomExtra in ThisBuild :=
+      <scm>
+        <url>git@github.com:l15k4/sbt-common.git</url>
+        <connection>scm:git@github.com:l15k4/sbt-common.git</connection>
+      </scm>
+      <developers>
+        <developer>
+          <id>l15k4</id>
+          <name>Jakub Liska</name>
+          <url>https://github.com/l15k4</url>
+        </developer>
+      </developers>
   ).settings(
     addSbtPlugin("io.get-coursier"                % "sbt-coursier"          % "1.0.0"),
     addSbtPlugin("com.jsuereth"                   % "sbt-pgp"               % "1.1.0-M1"),
