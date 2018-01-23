@@ -2,13 +2,14 @@ lazy val `sbt-common` = (project in file("."))
   .settings(
     organization := "net.globalwebindex",
     name := "sbt-common",
-    version := "0.0.7",
+    version := "0.0.8",
     sbtPlugin := true,
-    publishTo := Some("S3 Snapshots" at "s3://public.maven.globalwebindex.net.s3-website-eu-west-1.amazonaws.com/snapshots"),
+    publishTo := Some("releases" at "https://oss.sonatype.org/" + "service/local/staging/deploy/maven2"),
     publishMavenStyle := true,
     pomIncludeRepository := { _ => false}
   ).settings(
     addSbtPlugin("io.get-coursier"                % "sbt-coursier"          % "1.0.0"),
+    addSbtPlugin("com.jsuereth"                   % "sbt-pgp"               % "1.1.0-M1"),
     addSbtPlugin("net.virtual-void"               % "sbt-dependency-graph"  % "0.9.0"),
     addSbtPlugin("com.eed3si9n"                   % "sbt-buildinfo"         % "0.7.0"),
     addSbtPlugin("com.timushev.sbt"               % "sbt-updates"           % "0.3.3"),
