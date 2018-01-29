@@ -40,6 +40,7 @@ trait Dependencies {
   lazy val snappy                     = "org.xerial.snappy"             %     "snappy-java"                           % "1.1.7.1"
   lazy val asciiGraphs                = "com.github.mdr"                %%    "ascii-graphs"                          % "0.0.7"
   lazy val pprint                     = "com.lihaoyi"                   %%    "pprint"                                % "0.5.3"
+  lazy val fastUuid                   = "com.eatthepath"                %     "fast-uuid"                             % "0.1"
 
   lazy val akkaActor                  = "com.typesafe.akka"             %%    "akka-actor"                            % akkaVersion
   lazy val akkaSlf4j                  = "com.typesafe.akka"             %%    "akka-slf4j"                            % akkaVersion
