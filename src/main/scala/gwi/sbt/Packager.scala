@@ -71,7 +71,7 @@ trait Packager extends Dependencies {
         assemblyMergeStrategy in assembly := {
           case PathList("reference.conf")                           => MergeStrategy.concat
           case PathList("application.conf")                         => MergeStrategy.concat
-          case PathList(ps @ _*) if ps.last endsWith ".properties"  => MergeStrategy.first
+          case PathList("project.properties")                       => MergeStrategy.first // BigQuery
           case PathList("META-INF", "io.netty.versions.properties") => MergeStrategy.first
           case x                                                    => MergeStrategy.defaultMergeStrategy(x)
         },
