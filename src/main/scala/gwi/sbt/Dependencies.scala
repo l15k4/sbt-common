@@ -88,8 +88,8 @@ trait Dependencies {
                                         "com.fasterxml.jackson.core"    %     "jackson-annotations"                   % jacksonVersion
                                       )
   lazy val clist                      = Seq(
-                                        "org.backuity.clist"            %%    "clist-core"                            % "3.3.0",
-                                        "org.backuity.clist"            %%    "clist-macros"                          % "3.3.0"                 % "provided"
+                                        "org.backuity.clist"            %%    "clist-core"                            % "3.4.0",
+                                        "org.backuity.clist"            %%    "clist-macros"                          % "3.4.0"                 % "provided"
                                       )
   lazy val loggingApi                 = Seq(
                                         "org.slf4j"                     %     "slf4j-api"                             % "1.7.25",
