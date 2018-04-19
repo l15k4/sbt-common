@@ -87,9 +87,9 @@ trait Dependencies {
                                         "com.fasterxml.jackson.core"    %     "jackson-core"                          % jacksonVersion,
                                         "com.fasterxml.jackson.core"    %     "jackson-annotations"                   % jacksonVersion
                                       )
-  lazy val clist                      = Seq(
-                                        "org.backuity.clist"            %%    "clist-core"                            % "3.4.0",
-                                        "org.backuity.clist"            %%    "clist-macros"                          % "3.4.0"                 % "provided"
+  lazy val clist                      = Seq( // TODO this is temporary, switch to official artifact after it is published !!!
+                                        "net.globalwebindex"            %%    "clist-core"                            % "3.5.0",
+                                        "net.globalwebindex"            %%    "clist-macros"                          % "3.5.0"                 % "provided"
                                       )
   lazy val loggingApi                 = Seq(
                                         "org.slf4j"                     %     "slf4j-api"                             % "1.7.25",
