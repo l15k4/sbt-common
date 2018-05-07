@@ -76,7 +76,7 @@ trait Dependencies {
   lazy val scalatest                  = "org.scalatest"                 %%    "scalatest"                             % "3.0.4"                 % "test"
   lazy val scalatestKafka             = "net.manub"                     %%    "scalatest-embedded-kafka"              % "1.0.0"                 % "test"
   lazy val scalameter                 = "com.storm-enroute"             %%    "scalameter"                            % "0.8.2"                 % "test"
-  lazy val s3mock                     = "io.findify"                    %%    "s3mock"                                % "0.2.4"                 % "test"
+  lazy val s3mock                     = "io.findify"                    %%    "s3mock"                                % "0.2.5"                 % "test"
 
   lazy val jodaTime                   = Seq(
                                         "joda-time"                     %     "joda-time"                             % "2.9.9",
