@@ -2,7 +2,7 @@ lazy val `sbt-common` = (project in file("."))
   .settings(
     organization := "net.globalwebindex",
     name := "sbt-common",
-    version := "0.0.18",
+    version := "0.0.19",
     licenses in ThisBuild := Seq("CC0" -> url("https://creativecommons.org/publicdomain/zero/1.0/legalcode")),
     homepage in ThisBuild := Some(url("https://github.com/l15k4/sbt-common")),
     sbtPlugin := true,
