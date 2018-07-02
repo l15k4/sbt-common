@@ -59,6 +59,7 @@ trait Dependencies {
   lazy val akkaDistributedData        = "com.typesafe.akka"             %%    "akka-distributed-data-experimental"    % akkaVersion
   lazy val akkaPersistence            = "com.typesafe.akka"             %%    "akka-persistence"                      % akkaVersion
   lazy val akkaPersistenceRedis       = "com.safety-data"               %%    "akka-persistence-redis"                % "0.3.0"
+  lazy val akkaPersistenceJdbc        = "com.github.dnvriend"           %%    "akka-persistence-jdbc"                 % "3.4.0"
   lazy val akkaPersistenceDynamoDB    = "com.typesafe.akka"             %%    "akka-persistence-dynamodb"             % "1.1.0"
   lazy val akkaPersistenceInMemory    = "com.github.dnvriend"           %%    "akka-persistence-inmemory"             % "2.5.1.1"
   lazy val akkaKryoSerialization      = "com.github.romix.akka"         %%    "akka-kryo-serialization"               % "0.5.2"
