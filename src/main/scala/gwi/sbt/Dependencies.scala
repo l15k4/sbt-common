@@ -7,7 +7,7 @@ trait Dependencies {
 
   lazy val akkaVersion                  = "2.5.16"
   lazy val alpakkaVersion               = "0.18"
-  lazy val akkaHttpVersion              = "10.1.1"
+  lazy val akkaHttpVersion              = "10.1.4"
   lazy val jacksonVersion               = "2.9.2"
 
   lazy val scalaJsDom                   = "org.scala-js"                  %%%!  "scalajs-dom"                           % "0.9.4"
