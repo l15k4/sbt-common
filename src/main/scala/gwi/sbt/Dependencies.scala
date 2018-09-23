@@ -44,6 +44,11 @@ trait Dependencies {
 
   lazy val gcBigQuery                   = "com.google.cloud"              %     "google-cloud-bigquery"                 % "1.43.0"
 
+  lazy val kamonCore                    = "io.kamon"                      %%    "kamon-core"                            % "1.1.3"
+  lazy val kamonSystemMetrics           = "io.kamon"                      %%    "kamon-system-metrics"                  % "1.0.0"
+  lazy val kamonAkkaHttp                = "io.kamon"                      %%    "kamon-akka-http-2.5"                   % "1.1.0"
+  lazy val kamonPrometheus              = "io.kamon"                      %%    "kamon-prometheus"                      % "1.1.1"
+
   lazy val akkaActor                    = "com.typesafe.akka"             %%    "akka-actor"                            % akkaVersion
   lazy val akkaSlf4j                    = "com.typesafe.akka"             %%    "akka-slf4j"                            % akkaVersion
   lazy val akkaStream                   = "com.typesafe.akka"             %%    "akka-stream"                           % akkaVersion
