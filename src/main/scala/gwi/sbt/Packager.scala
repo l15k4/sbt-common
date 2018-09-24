@@ -4,10 +4,10 @@ import sbt.Keys.{parallelExecution, _}
 import sbt.{Def, File, _}
 import sbtassembly.AssemblyPlugin
 import sbtassembly.AssemblyPlugin.autoImport._
+import sbtdocker.DockerKeys.{dockerBuildAndPush, dockerPush}
 import sbtdocker.DockerPlugin
 import sbtdocker.DockerPlugin.autoImport._
 import sbtdocker.mutable.Dockerfile
-import sbtdocker.DockerKeys.{dockerBuildAndPush, dockerPush}
 
 trait Packager extends Dependencies {
 
@@ -72,6 +72,7 @@ trait Packager extends Dependencies {
           case PathList("reference.conf")                           => MergeStrategy.concat
           case PathList("application.conf")                         => MergeStrategy.concat
           case PathList("project.properties")                       => MergeStrategy.first // BigQuery
+          case PathList("META-INF", "aop.xml")                      => MergeStrategy.first // kamon
           case PathList("META-INF", "io.netty.versions.properties") => MergeStrategy.first
           case x                                                    => MergeStrategy.defaultMergeStrategy(x)
         },
